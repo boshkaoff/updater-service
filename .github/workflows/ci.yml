@@ -31,6 +31,10 @@ jobs:
         cd build
         cmake -DCMAKE_PREFIX_PATH="${{ env.GRPC_ROOT }}" ..
 
+    - name: Build project
+      run: |
+        cd build && cmake --build . -- -j$(nproc)
+
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
