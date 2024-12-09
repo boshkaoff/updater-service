@@ -15,10 +15,10 @@ file(MAKE_DIRECTORY ${GENERATED_DIR})
 find_package(Protobuf REQUIRED)
 find_package(gRPC REQUIRED)
 
-set(PROTO_SRCS "${GENERATED_DIR}/update-service.pb.cc")
-set(PROTO_HDRS "${GENERATED_DIR}/update-service.pb.h")
-set(GRPC_SRCS "${GENERATED_DIR}/update-service.grpc.pb.cc")
-set(GRPC_HDRS "${GENERATED_DIR}/update-service.grpc.pb.h")
+set(PROTO_SRCS "${GENERATED_DIR}/updater-service.pb.cc")
+set(PROTO_HDRS "${GENERATED_DIR}/updater-service.pb.h")
+set(GRPC_SRCS "${GENERATED_DIR}/updater-service.grpc.pb.cc")
+set(GRPC_HDRS "${GENERATED_DIR}/updater-service.grpc.pb.h")
 
 add_custom_command(
     OUTPUT ${PROTO_SRCS} ${PROTO_HDRS} ${GRPC_SRCS} ${GRPC_HDRS}
