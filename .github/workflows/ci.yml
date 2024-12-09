@@ -18,7 +18,21 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential cmake libprotobuf-dev protobuf-compiler grpc-dev
+        sudo apt install -y build-essential cmake libprotobuf-dev protobuf-compiler
+
+    - name: Install gRPC and Protobuf from source
+      run: |
+        sudo apt update
+        sudo apt install -y build-essential autoconf libtool pkg-config cmake git
+        git clone --recurse-submodules -b v1.56.0 https://github.com/grpc/grpc
+        cd grpc
+        mkdir -p cmake/build
+        cd cmake/build
+        cmake ../..
+        make -j$(nproc)
+        sudo make install
+        sudo ldconfig
+
 
     - name: Configure CMake
       run: |
