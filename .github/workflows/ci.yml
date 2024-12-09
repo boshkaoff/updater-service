@@ -23,7 +23,9 @@ jobs:
     - name: Configure CMake
       run: |
         mkdir -p build
-        cd build && cmake ..
+        cd build
+        cmake -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/cmake/grpc;/usr/lib/x86_64-linux-gnu/cmake/protobuf" ..
+
 
     - name: Build project
       run: |
