@@ -4,7 +4,7 @@
 #define UPDATER_SERVICE_H
 
 #include <grpcpp/grpcpp.h>
-#include "update_service.grpc.pb.h"
+#include "update-service.grpc.pb.h"
 #include <string>
 
 constexpr size_t CHUNK_SIZE = 4096;
