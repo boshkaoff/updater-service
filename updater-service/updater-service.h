@@ -7,7 +7,7 @@
 #include "updater-service.grpc.pb.h"
 #include <string>
 
-constexpr size_t CHUNK_SIZE = 4096;
+constexpr size_t CHUNK_SIZE = 256 * 1024;  // 256 КБ
 
 class UpdaterService final : public update::UpdateService::Service
 {
