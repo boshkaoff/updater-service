@@ -25,7 +25,7 @@ add_custom_command(
     COMMAND ${Protobuf_PROTOC_EXECUTABLE}
     ARGS --grpc_out=${GENERATED_DIR}
          --cpp_out=${GENERATED_DIR}
-         --plugin=protoc-gen-grpc=/usr/bin/protoc-gen-grpc
+         --plugin=protoc-gen-grpc=${gRPC_CPP_PLUGIN}
          -I ${PROTO_DIR}
          ${PROTO_FILE}
     DEPENDS ${PROTO_FILE}
