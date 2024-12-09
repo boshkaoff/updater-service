@@ -40,5 +40,5 @@ set(SOURCES
 
 add_executable(updater_service ${SOURCES})
 
-target_include_directories(updater_service PRIVATE ${GENERATED_DIR} ${CMAKE_SOURCE_DIR}/updater-service)
+target_include_directories(updater_service PRIVATE ${CMAKE_SOURCE_DIR}/updater-service)
 target_link_libraries(updater_service PRIVATE gRPC::grpc++ protobuf::libprotobuf)
