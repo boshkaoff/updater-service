@@ -20,15 +20,6 @@ jobs:
       with:
         grpc-version: '1.51.1'
 
-    - name: Debug gRPC setup
-      run: |
-        echo "PATH: $PATH"
-        echo "CMAKE_PREFIX_PATH: $CMAKE_PREFIX_PATH"
-        echo "GRPC_ROOT: $GRPC_ROOT"
-        ls -l /opt/hostedtoolcache/grpc/1.51.1/x64/bin/
-        which protoc-gen-grpc
-        file /opt/hostedtoolcache/grpc/1.51.1/x64/bin/protoc-gen-grpc
-
     - name: Install dependencies
       run: |
         sudo apt-get update
