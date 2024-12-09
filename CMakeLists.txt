@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(PROTO_DIR ${CMAKE_SOURCE_DIR}/proto)
-set(PROTO_FILE ${PROTO_DIR}/update-service.proto)
+set(PROTO_FILE ${PROTO_DIR}/updater-service.proto)
 
 set(GENERATED_DIR ${CMAKE_BINARY_DIR}/generated)
 
