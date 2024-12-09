@@ -5,19 +5,6 @@ project(updater_service LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(FetchContent)
-
-FetchContent_Declare(
-  grpc
-  GIT_REPOSITORY https://github.com/grpc/grpc.git
-  GIT_TAG v1.56.0
-)
-FetchContent_MakeAvailable(grpc)
-
-set(_GRPC_PROTOBUF_PROTOC $<TARGET_FILE:protoc>)
-set(_GRPC_GRPCPP_PLUGIN $<TARGET_FILE:grpc_cpp_plugin>)
-
-
 set(PROTO_DIR ${CMAKE_SOURCE_DIR}/out)
 set(PROTO_FILE ${PROTO_DIR}/update_service.proto)
 
@@ -38,7 +25,7 @@ add_custom_command(
     COMMAND ${Protobuf_PROTOC_EXECUTABLE}
     ARGS --grpc_out=${GENERATED_DIR}
          --cpp_out=${GENERATED_DIR}
-         --plugin=protoc-gen-grpc=${_GRPC_GRPCPP_PLUGIN}
+         --plugin=protoc-gen-grpc=${gRPC_CPP_PLUGIN}
          -I ${PROTO_DIR}
          ${PROTO_FILE}
     DEPENDS ${PROTO_FILE}
