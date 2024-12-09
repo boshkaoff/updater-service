@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package update;
+
+service UpdateService {
+    rpc CheckForUpdates(CheckRequest) returns (CheckResponse);
+    rpc DownloadUpdate(DownloadRequest) returns (stream DownloadResponse);
+}
+
+message CheckRequest {
+    string current_version = 1; 
+}
+
+message CheckResponse {
+    bool update_available = 1;  
+    string latest_version = 2; 
+}
+
+message DownloadRequest { }
+
+message DownloadResponse {
+    bytes chunk = 1;
+}
