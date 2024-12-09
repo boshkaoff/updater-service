@@ -29,16 +29,7 @@ jobs:
       run: |
         mkdir -p build
         cd build
-        cmake -DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/cmake/grpc;/usr/lib/x86_64-linux-gnu/cmake/protobuf" ..
-
-    - name: Debug gRPC setup
-      run: |
-        echo "PATH: $PATH"
-        echo "CMAKE_PREFIX_PATH: $CMAKE_PREFIX_PATH"
-        echo "GRPC_ROOT: $GRPC_ROOT"
-        which protoc-gen-grpc
-        protoc --version
-
+        cmake -DCMAKE_PREFIX_PATH="${{ env.GRPC_ROOT }}" -DGRPC_ROOT="${{ env.GRPC_ROOT }}" ..
 
     - name: Build project
       run: |
