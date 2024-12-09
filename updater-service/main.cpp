@@ -44,7 +44,7 @@ void RunServer(
     std::unique_ptr<grpc::Server> server(builder.BuildAndStart());
 
     std::cout << "[Log]" << "Update service is running on " << server_address << std::endl;
-    std::cout << "[Log]" << "Update service working." << server_address << std::endl;
+    std::cout << "[Log]" << "Update service working." << std::endl;
     
     server->Wait();
 }
