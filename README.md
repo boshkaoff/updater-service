@@ -38,30 +38,35 @@ A high-performance gRPC service written in C++ for managing client updates. Desi
    ```bash
    git clone https://github.com/boshkaoff/updater-service.git
    cd updater-service
+   ```
 
-    Install dependencies:
+2. Install dependencies:
+   ```bash
+   sudo apt update
+   sudo apt install -y build-essential cmake libssl-dev protobuf-compiler libprotobuf-dev
+   ```
 
-sudo apt update
-sudo apt install -y build-essential cmake libssl-dev protobuf-compiler libprotobuf-dev
+3. Build the gRPC libraries:
+   ```bash
+   git clone -b v1.55.0 https://github.com/grpc/grpc
+   cd grpc
+   git submodule update --init
+   mkdir -p cmake/build
+   cd cmake/build
+   cmake -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ../..
+   make -j$(nproc)
+   sudo make install
+   cd ../../..
+   ```
 
-Build the gRPC libraries:
+4. Build the project:
+```bash
+   mkdir build && cd build
+   cmake ..
+   make -j$(nproc)
+```
 
-git clone -b v1.55.0 https://github.com/grpc/grpc
-cd grpc
-git submodule update --init
-mkdir -p cmake/build
-cd cmake/build
-cmake -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ../..
-make -j$(nproc)
-sudo make install
-cd ../../..
-
-Build the project:
-
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
-
-Run the server:
-
+5. Run the server:
+```bash
 ./server
+```
