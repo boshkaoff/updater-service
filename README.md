@@ -60,13 +60,13 @@ A high-performance gRPC service written in C++ for managing client updates. Desi
    ```
 
 4. Build the project:
-```bash
-   mkdir build && cd build
-   cmake ..
-   make -j$(nproc)
-```
+   ```bash
+      mkdir build && cd build
+      cmake ..
+      make -j$(nproc)
+   ```
 
 5. Run the server:
-```bash
-./server
-```
+   ```bash
+   ./server
+   ```
