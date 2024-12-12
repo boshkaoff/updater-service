@@ -36,8 +36,8 @@ A high-performance gRPC service written in C++ for managing client updates. Desi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/grpc-client-update-service.git
-   cd grpc-client-update-service
+   git clone https://github.com/boshkaoff/updater-service.git
+   cd updater-service
 
     Install dependencies:
 
